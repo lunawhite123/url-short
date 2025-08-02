@@ -1,0 +1,12 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.vscode/
+.Python/
+
+venv/
+*.egg-info/
+.pytest_cache/
+

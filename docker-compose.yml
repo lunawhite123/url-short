@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine # Используем официальный образ PostgreSQL, легкая alpine версия
+    environment:
+      POSTGRES_DB: shortener_db # Имя базы данных, которую создаст PostgreSQL
+      POSTGRES_USER: user # Имя пользователя для подключения к БД
+      POSTGRES_PASSWORD: password # Пароль для пользователя БД
+    ports:
+      - "5432:5432" # Пробрасываем порт 5432 (стандартный для PostgreSQL) с контейнера на твой компьютер
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Сохраняем данные БД на твоём компьютере, чтобы они не терялись при перезапуске контейнера
+    healthcheck: # Проверка готовности БД
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data: # Объявление volume для сохранения данных
