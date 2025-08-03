@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:16-alpine # Используем официальный образ PostgreSQL, легкая alpine версия
     environment:
-      POSTGRES_DB: shortener_db # Имя базы данных, которую создаст PostgreSQL
+      POSTGRES_DB: shortener_auth_db # Имя базы данных, которую создаст PostgreSQL
       POSTGRES_USER: user # Имя пользователя для подключения к БД
       POSTGRES_PASSWORD: password # Пароль для пользователя БД
     ports:
