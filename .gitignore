@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 .vscode/
 .Python/
-
+__pycache__/
 venv/
 *.egg-info/
 .pytest_cache/
